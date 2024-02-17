@@ -1,0 +1,19 @@
+trigger:
+- master
+
+stages:
+  - stage: 'here_we_are_building_the_app'
+    jobs:
+    - job: 'build_mvc_job'
+      steps:
+      - task: DotNetCoreCLI@2
+        displayName: 'now building'
+        inputs:
+          command: build
+          arguments: '-c Release -o $(Build.ArtifactStagingDirectory)'
+      
+      - script: |
+         echo '-------Displaying contents of work dir-------'
+         dir '$(Build.SourcesDirectory)'
+         
+
