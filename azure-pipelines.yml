@@ -15,5 +15,7 @@ stages:
       - script: |
          echo '-------Displaying contents of work dir-------'
          dir '$(Build.SourcesDirectory)'
+          echo '-------Displaying artifacts-------'
+         dir '$(Build.ArtifactStagingDirectory)'
          
 
